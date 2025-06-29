@@ -24,9 +24,9 @@ app.use(
 app.use(passport.initialize());
 
 //Routes
-app.use("/auth", require("./routes/authRoute"));
-app.use("/chats", require("./routes/chatRoute"));
-app.use("/conversation", require("./routes/conversationRoute"));
+app.use("/api/auth", require("./routes/authRoute"));
+app.use("/api/chats", require("./routes/chatRoute"));
+app.use("/api/conversation", require("./routes/conversationRoute"));
 
 app.use((err, req, res, next) => {
   console.log(err.stack);
