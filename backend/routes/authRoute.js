@@ -24,8 +24,7 @@ router.post('/logout' , (req,res) =>{
     res.clearCookie("auth_token", {
         httpOnly: true,
         sameSite: 'none',
-        secure: true,
-        domain: process.env.NODE_ENV === 'production' ? undefined : undefined,
+        secure: true
     })
     return  res.status(201).json({ message: "user logout success" });
 })

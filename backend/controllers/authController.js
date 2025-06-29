@@ -36,7 +36,6 @@ exports.register = async (req, res) => {
       sameSite: "none",
       secure: true,
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-      domain: process.env.NODE_ENV === 'production' ? undefined : undefined,
     });
 
     res.status(201).json({
@@ -86,7 +85,6 @@ exports.login = async (req, res) => {
       sameSite: "none",
       secure: true,
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-      domain: process.env.NODE_ENV === 'production' ? undefined : undefined,
     });
 
     res.status(201).json({
@@ -141,7 +139,6 @@ exports.googleCallback = async (req, res) => {
       sameSite: "none",
       secure: true,
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-      domain: process.env.NODE_ENV === 'production' ? undefined : undefined,
     });
 
     res.redirect(`${process.env.FRONTNED_URL}/auth/success-login?token=${token}`);

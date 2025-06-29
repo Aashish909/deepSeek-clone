@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Updated CORS configuration for production
 app.use(
   cors({
-    origin: process.env.FRONTNED_URL || "https://deep-seek-clone-rosy.vercel.app",
+    origin: "https://deep-seek-clone-rosy.vercel.app",
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
