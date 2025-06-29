@@ -22,9 +22,10 @@ router.get('/google/callback', passport.authenticate('google', {session:false,fa
 
 router.post('/logout' , (req,res) =>{
     res.clearCookie("auth_token", {
-        httpOnly:true,
-        sameSite:'none',
-        secure:true
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true,
+        domain: process.env.NODE_ENV === 'production' ? undefined : undefined,
     })
     return  res.status(201).json({ message: "user logout success" });
 })

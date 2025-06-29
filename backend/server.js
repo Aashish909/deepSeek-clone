@@ -14,14 +14,22 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
+// Updated CORS configuration for production
 app.use(
   cors({
-    origin: process.env.FRONTNED_URL,
+    origin: process.env.FRONTNED_URL || "https://your-vercel-app.vercel.app",
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
   })
 );
 
 app.use(passport.initialize());
+
+// Test endpoint to verify server is working
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Server is working!', cookies: req.cookies });
+});
 
 //Routes
 app.use("/api/auth", require("./routes/authRoute"));
